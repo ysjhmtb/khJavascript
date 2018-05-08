@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>HTML 태그 선택</title>
+  <style>
+	.area{
+		width:300px;
+		height:100px;
+		border:1px solid black;
+	}
+  </style>
+  <script>
+	function accessId(){
+		//document.getElementById("idDiv").innerHTML += "아이디로 접근 성공//<br>";
+		/*document.getElementById("idDiv").innerHTML = 
+		    document.getElementById("idDiv").innerHTML + "아이디로 접근 성공<br>";*/
+		var $idDiv = document.getElementById("idDiv");
+		$idDiv.innerHTML += "아이디로 접근 성공<br>";
+		//css 변경 - style - 해당 속성들의 값
+		$idDiv.style.backgroundColor = "yellow";
+		$idDiv.style.color = "red";
+	}
+
+	function accessTagName(){
+		var list = document.getElementsByTagName("li");
+		console.log(list);
+		console.log("list 항목 갯수 : " + list.length);
+		var redValue = 32;
+		/*for(var i = 0 ; i < list.length ; i++){
+			list[i].style.backgroundColor = "rgb("+ redValue + ", 54, 173)";
+			list[i].style.color = "white";
+			redValue += 40;
+		}*/
+
+		//for ... in
+		//키로 사용되는 값이 나온다(배열 - 인덱스, json - 키)
+		for(var key in list){
+			//console.log(key);
+			list[key].style.backgroundColor = "rgb("+ redValue + ", 54, 173)";
+			list[key].style.color = "white";
+			redValue += 40;
+		}
+	}
+	
+	function accessName(){
+		var hobby = document.getElementsByName("hobby");
+		//console.log(hobby.length);
+		
+		var outMsg = "";
+		for(var index in hobby){
+			//console.log(hobby[index].checked);
+			if(hobby[index].checked){
+				outMsg += hobby[index].value + " 를 선택함<br>";
+			}
+		}
+		//console.log(outMsg);
+		document.getElementById("nameDiv").innerHTML = outMsg;
+	}
+
+  </script>
+ </head>
+ <body>
+  <h1>HTML 태그에 접근하기</h1>
+  <h3>아이디로 접근</h3>
+  <button onclick="accessId();">아이디로 접근</button>
+  <div id="idDiv" class="area"></div>
+  <hr>
+  <h3>태그 명으로 접근</h3>
+  <p>getElementsByTagName("태그명");</p>
+  <ul>
+	<li>목록1</li>
+	<li>목록2</li>
+	<li>목록3</li>
+	<li>목록4</li>
+	<li>목록5</li>
+  </ul>
+  <button onclick="accessTagName();">태그명으로 접근</button>
+  <hr>
+
+  <h3>name 속성으로 html 객체 선택</h3>
+  <p>getElementsByName("이름");</p>
+  <form>
+	<fieldset>
+		<legend>취미</legend>
+		<table>
+			<tr>
+				<td>
+					<input type="checkbox" name="hobby" value="game" id="game"><label for="game">게임</label>
+				</td>
+				<td>
+					<input type="checkbox" name="hobby" value="movie" id="movie"><label for="movie">영화</label>
+				</td>
+				<td>
+					<input type="checkbox" name="hobby" value="song" id="song"><label for="song">노래</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="hobby" value="book" id="book"><label for="book">책</label>
+				</td>
+				<td>
+					<input type="checkbox" name="hobby" value="trip" id="trip"><label for="trip">여행</label>
+				</td>
+				<td>
+					<input type="checkbox" name="hobby" value="develope" id="develope"><label for="develope">개발</label>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+  </form>
+  <button onclick="accessName();">네임 속성으로 선택</button>
+  <div id="nameDiv" class="area"></div>
+  <hr>
+  <h3>input text 값을 읽어오기</h3>
+  <form>
+	<input type="text" name="userName" id="userName"><br>
+	<input type="button" onclick="getUserName();" value="값 확인"/>
+  </form>
+  <div id="textReadDiv" class="area"></div>
+  <script>
+	//userName 값을 읽어서 div출력
+	//입력이 안되어 있는 경우 alert('이름을 입력 하십시오');
+	//입력이 정상적으로 되어 있다면 'XX님 환영합니다.' - div 출력
+	//hint - length == 0 , value=="" 
+	function getUserName(){
+		var userName = document.getElementById("userName").value;
+
+		if(userName.length == 0 || userName == ""){
+			alert("이름을 입력 하십시오");
+		}else{
+			document.getElementById("textReadDiv").innerHTML = userName + "님 환영합니다.";
+		}
+	}
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

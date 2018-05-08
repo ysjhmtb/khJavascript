@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>자바스크립트 개요</title>
+  <script>
+	function testScriptFunction2(){
+		alert("헤드 태그 내 선언 된 메소드 호출 방식!!");
+	}
+  </script>
+ </head>
+ <body>
+ <h1>자바스크립트 개요</h1>
+ <dl>
+	<dt>자바스크립트 언어</dt>
+	<dd>기본 프로그램이 존재 한 후 사용자의 요구에 맞게 수행되는 이벤트 처리를 담당하는 언어 영역, 웹 브라우저에서 해석하는 언어이며, 인터프리터 방식의 언어 입니다. ECMA 스크립트 표준을 따른다. 브라우저 마다 설치되어 있는 인터프리터가 다르다. -> 웹호환성 신경써야 한다. -> jQuery</dd>
+ </dl>
+ <dl>
+	<dt>자바스크립트 선언 방법</dt>
+	<dd>1. 태그 내 자바스크립트를 직접 선언하는 방법(이벤트 핸들러)</dd>
+	<dd>script 태그 내에 선언 하는 방식(head, body 기타 여러 위치 -> html 태그 내에 존재)</dd>
+	<dd>외부 파일 참조 형식(.js 파일을 따로 작성하여 참조 하는 방식)</dd>
+ </dl>
+
+ <hr>
+ <h2>태그에 직접 자바스크립트를 선언 하는 방식(버튼 선택 시 경고창 띄우기)</h2>
+ <button onclick="window.alert(123);">클릭 하세요!!!</button><br>
+ <button onclick="alert('테스트 항목 입니다.');">클릭 하세요!!!</button>
+ <!-- 자바스크립트 문자열 - "", '' -->
+ <hr>
+
+ <h2>스크립트 태그 내에 function 선언 후 호출 방식</h2>
+ <button onclick="testScriptFunction();">script 태그에 선언 된 내용 호출</button>
+ <script>
+	function testScriptFunction(){
+		alert("스크립트 태그 내 선언 된 메소드 호출 방식");
+		//return 해당 값, 해당 변수;	
+	}
+ </script>
+ <button onclick="testScriptFunction2();">해드 태그 내 스크립트 호출</button>
+ <hr>
+
+ <h2>별도로 작성된 js파일 선언 & 호출</h2>
+ <button onclick="outScriptFunction();">외부 스크립트 호출</button>
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+
