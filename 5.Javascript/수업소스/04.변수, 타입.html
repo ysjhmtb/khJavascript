@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>변수와 자료형</title>
+  <style>
+	.area{
+		width:300px;
+		height:300px;
+		border:1px solid black;
+	}
+  </style>
+ </head>
+ <body>
+ <h1>변수와 자료형</h1>
+ <h3>변수 선언 방법</h3>
+ <p>함수 내부에서 var를 이용하여 선언 : 함수 내에서 사용하는 지역변수</p>
+ <p>함수 외부(스크립트 영역)에서 var를 이용하여 선언 : 전역 변수</p>
+ <p>스크립트영역 변수명으로 선언할 경우 : [window.]변수명 - 전역변수 처럼 사용가능한 변수가 됨(함수 내에서 변수명으로 선언해도 전역변수로 선언 됨)</p>
+ <p>각 영역에 맞는 변수 접근 후 값 사용</p>
+ <script>
+	//전역변수
+	str = "전역변수";		//자동으로 window객체 필드가 됨 
+								//			-> [window.]변수명만 사용해서 접근 가능
+	//script 영역 내 var를 이용해서 전역변수 선언
+	var str2 = "var 전역변수";
+	
+	window.onload = function(){
+		//지역변수 선언
+		var str = "지역변수"; //지역변수 선언시엔 var로 선언
+		var str3 = "새로운 지역변수";
+
+		//변수를 호출 할때 this, window를 사용하여 호출
+		// -->전역변수를 호출하는 방법
+		console.log(str);
+		console.log(this.str);
+		console.log(window.str);
+		
+		console.log(str2);
+		console.log(this.str2);
+		console.log(window.str2);
+
+		//지역변수에 접근할땐 this와 window를 사용하지 않는다.
+		console.log(str3);
+		console.log(this.str3);
+		console.log(window.str3);
+		
+		//함수 내 작성하여도 전역변수 선언이 가능하다(var X)
+		testVar = "어떤 영역 일까요?";
+		getTestVar();
+	}
+
+	function getTestVar(){
+		console.log(testVar);
+		console.log(this.testVar);
+		console.log(window.testVar);
+	}
+ </script>
+ <hr>
+ <h3>변수 타입(자료형)</h3>
+ <p>var를 이용해서 변수를 선언 할때 타입이 정해지는게 아니라, 해당 변수에 값이 할당 될때 타입이 정해진다.</p>
+ <p>문자열, 정수, boolean, 배열(object - 키 값이 숫자), object(map)</p>
+ <button onclick="checkType();">자료형 확인</button>
+ <div id="typeDiv" class="area"></div>
+ <script>
+	function checkType(){
+		var name = '최범석';
+		var age = 20;
+		var flag = true;
+		var hobby = ['롱보드', '실내 압벽등반', '노래', '운동'];
+		var user = {
+							name:'최범석',
+							age:20,
+							id:'beomsuk'
+						}  //json 키와 value 둘다 스트링
+		var checkFunction = function(){
+										 var mod = 5 % 3;
+										 alert(mod);
+									  };
+		var $typeDiv = document.getElementById("typeDiv");
+		$typeDiv.innerHTML += "문자열 변수 : " + name + "<br>";
+		$typeDiv.innerHTML += "숫자 변수 : " + age + "<br>";
+		$typeDiv.innerHTML += "논리형 변수 : " + flag + "<br>";
+		$typeDiv.innerHTML += "배열 변수 : " + hobby + "<br>";
+		$typeDiv.innerHTML += "객체 변수 : " + user + "<br>";
+		$typeDiv.innerHTML += "객체 값 : " + user.name + "/" + user.age + "/" + user.id + "<br>";
+		$typeDiv.innerHTML += "함수 : " + checkFunction + "<br>";
+		
+		console.log("name : " + typeof(name));
+		console.log("age : " + typeof(age));
+		console.log("flag : " + typeof(flag));
+		console.log("hobby : " + typeof(hobby));
+		console.log("user : " + typeof(user));
+		console.log("checkFunction : " + typeof(checkFunction));
+		console.log("$typeDiv : " + typeof($typeDiv));
+		console.log($typeDiv);
+		//checkFunction();
+		var temp;
+		console.log(typeof(temp));
+	}
+ </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </body>
+</html>

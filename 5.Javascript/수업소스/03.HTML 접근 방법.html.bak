@@ -127,7 +127,16 @@
 	//입력이 안되어 있는 경우 alert('이름을 입력 하십시오');
 	//입력이 정상적으로 되어 있다면 'XX님 환영합니다.' - div 출력
 	//hint - length == 0 , value=="" 
+		
+	function getUserName(){
+		var userName = document.getElementById("userName").value;
 
+		if(userName.length == 0 || userName == ""){
+			alert("이름을 입력 하십시오");
+		}else{
+			document.getElementById("textReadDiv").innerHTML = userName + "님 환영합니다.";
+		}
+	}
   </script>
 
 

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>배열</title>
+  <style>
+	.area{
+		width:300px;
+		height:100px;
+		border:1px solid black;
+	}
+  </style>
+ </head>
+ <body>
+ <h1>배열</h1>
+ <h3>배열이란.</h3>
+ <p>자바스크립트 에서는 타입의 제한이 없기 때문에, 여러가지 타입의 값들을 저장가능 하다</p>
+ <div id="arrayDiv1" class="area"></div>
+ <button onclick="printArray();">배열 값 확인</button>
+ <script>
+	function printArray(){
+		var $arrayDiv1 = document.getElementById("arrayDiv1");
+
+		var array = ['최범석', 20, true, [1,2,3,4]];
+		$arrayDiv1.innerHTML = array;
+		console.log(array);
+	}
+ </script>
+ <hr>
+ <h3>배열 선언 방법</h3>
+ <p>크기를 정하지 않고 선언, 크기를 정해서 선언</p>
+ <div id="arrayDiv2" class="area"></div>
+ <button onclick="initArr();">배열 생성</button>
+ <script>
+	function initArr(){
+		var $arrayDiv2 = document.getElementById("arrayDiv2");
+		
+		var arr1 = new Array();
+		arr1[0] = "아아";
+		arr1[1] = "라떼";
+		arr1[2] = "마끼아또";
+		arr1[3] = "블랙티라떼";
+		console.log(1, arr1);
+
+		var arr2 = new Array(3);
+		arr2[0] = "아아";
+		arr2[1] = "라떼";
+		arr2[2] = "마끼아또";
+		arr2[3] = "블랙티라떼";
+		console.log(arr2);
+
+	}
+
+ </script>
+
+
+
+
+ </body>
+</html>
