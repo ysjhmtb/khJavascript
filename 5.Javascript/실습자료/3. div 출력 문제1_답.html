@@ -32,7 +32,22 @@
 	<div id="area"></div>
 	<script>
 		//입력값 출력하기 선택 시 입력된 값들을 div 에 출력
-		//단 구매자 상품, 상품명이 입력 되지 않은 경우 '구매자/상품명 입력 하십시오' alert창
+		//단 구매자 상품, 상품명이 입력 되지 않은 경우 '구매자/상품명 입력 하십시오' div 에 출력
+		function printValue(){
+			var name = document.getElementsByTagName("input")[0].value;
+			var pname = document.getElementById("pname").value;
+			var price = document.getElementsByName("price")[0].value;
+			var resultStr = '';
+			if(name.length == 0 || name == '' || pname.length == 0 || pname == ''){
+				resultStr = '구매자/상품명을 입력 하십시오.';
+			}else{
+				resultStr += '구매자 : ' + name + "<br>";
+				resultStr += '상품명 : ' + pname + "<br>";
+				resultStr += '가격 : ' + price;
+			}
+			
+			document.getElementById("area").innerHTML = resultStr;
+		}
 	</script>
 </body>
 </html>

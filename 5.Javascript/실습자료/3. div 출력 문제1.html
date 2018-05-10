@@ -31,29 +31,20 @@
 	<br>
 	<div id="area"></div>
 	<script>
+		function printValue(){
+			var $pname = document.getElementById("pname").value;
+			var $price = document.getElementById("price").value;
+			var $area = document.getElementById("area");
+			if($pname != null){
+				if($price != null){
+					$area.innerHTML += "상품명: " + $pname + "가격: " + $price;
+					}
+				}else{
+					$area.innerHTML +="상품명을 입력하세요";
+					}
+			}
 		//입력값 출력하기 선택 시 입력된 값들을 div 에 출력
 		//단 구매자 상품, 상품명이 입력 되지 않은 경우 '구매자/상품명 입력 하십시오' alert창
-		function printValue(){
-			console.log(document.getElementById("price"));
-
-
-			var pName = document.getElementById("pname").value;
-			var pPrice = document.getElementsByName("price")[0].value;
-
-			if( pName.length == 0 || pPrice.length == 0){
-
-				window.alert('구매자/상품명 입력 하십시오');			
-			}else{
-			
-			
-				document.getElementById("area").innerHTML = pName + "," + pPrice;
-			}
-
-		
-		}
-
-
-
 	</script>
 </body>
 </html>
