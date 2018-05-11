@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>클로져</title>
+ </head>
+ <body>
+ <h1>클로져</h1>
+ <h3>지역 변수 사용 가능 영역</h3>
+ <script>
+	function tempFunction(){
+		var name = "최범석";
+		alert(name);
+	}
+	//함수 외부에서는 접근이 불가능 하다.
+	//alert(name);
+ </script>
+ <hr>
+ <h3>클로져</h3>
+ <h4>함수를 리턴하는 함수(클로져)를 이용하면 지역변수를 함수가 종료 되더라도 값을 유지 시킬수 있다.</h4>
+ <h4>스크립트 영역은 변수와 메소드에 대한 접근 제한이 없다. -> 보안에 취약</h4>
+ <h4>클로져를 사용할 경우 지역변수를 전역변수처럼 사용 할 수 있다.(메소드를 통해서만 확인 가능)</h4>
+ <button onclick="callClosure('최범석')();">클로져 확인</button>
+ <script>
+	function callClosure(name){
+		var outputText = name + " 님 오늘의 일정은 무엇입니까?";
+		
+		return function(){
+			alert(outputText);
+		};
+	}
+ </script>
+ <hr>
+
+ <h3>클로저 호출 방식</h3>
+ <button onclick="test(this);">Java</button>
+ <button onclick="test(this);">Javascript</button>
+ <script>
+	function test(button){
+		//console.log(button);
+		var subject = button.innerHTML;
+		makeStr(subject)();
+	}
+	function makeStr(title){
+		var resultStr =  title + " 완전 재밌네요~!!";
+		return function (){
+			alert(resultStr);
+		};
+	}
+ </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ </body>
+</html>

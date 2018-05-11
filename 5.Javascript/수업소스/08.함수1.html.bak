@@ -106,30 +106,139 @@
 		
 		//넘어온 파라미터의 합을 구하시오
 		var sum = 0;
-		
-		$p5.innerHTML += "arguments의 합 : " + sum + "<br>";
+		for(var i = 0 ; i < arguments.length ; i++){
+			sum += arguments[i];
+		}
 
+		$p5.innerHTML += "arguments의 합 : " + sum + "<br>";
+	}
+ </script>
+ <hr>
+ <h3>내부 함수 선언</h3>
+ <p>지역 변수에 함수를 가지고 있다.</p>
+ <h4>삼각형의 빗변의 길이를 구하시오</h4>
+ 삼각형 밑변 : <input type="text" id="width"/><br>
+ 삼각형 높이 : <input type="text" id="height"/><br>
+ <button onclick="getLength();">빗변 구하기</button>
+ <p id="p6"></p>
+ <script>
+	function getLength(){
+		var width = parseInt(document.getElementById("width").value);
+		var height = parseInt(document.getElementById("height").value);
+
+		var hy = getHy(width, height);
+		//console.log(width, height, hy);
+		
+		document.getElementById("p6").innerHTML = "빗변의 길이는 " + hy + " 입니다.";
+	}
+
+	function getHy(width, height){
+		//루트(밑변^2 + 높이^2)
+		/*function square(num){
+			console.log("내부 함수 호출");
+			return num * num;
+		}*/
+		var square = function(num){
+								console.log("내부 함수 호출");
+								return num * num;
+							};
+
+		return Math.sqrt(square(width) + square(height));
+	}
+ </script>
+ <hr>
+
+ <h3>재귀 함수 호출</h3>
+ <h4>5! = 5 * 4 * 3 * 2 * 1</h4>
+ <input type="number" id="num" min="1" max="10"/><br>
+ <button onclick="getFactorial();">재귀 함수 호출</button>
+ <p id="p7"></p>
+ <script>
+	function getFactorial(){
+		var inputNum = document.getElementById("num").value;
+		var resultNum = factorial(inputNum);
+		document.getElementById("p7").innerHTML = resultNum;
+	}
+	function factorial(num){
+		//num 1일때
+		if(num == 1){
+			return 1;
+		}else{
+			console.log(num + " * " + (num - 1));
+			return num * factorial(num - 1); 
+		}
+	}
+	//하노이탑 재귀함수 // 트리 탐색
+ </script>
+ <hr>
+ <h3>선언 된 함수를 매개변수로 전달</h3>
+ <h4>함수를 파라미터로 이용할땐 함수 명만 기술</h4>
+ <button onclick="callParamFunction(checkCount);">전달 된 함수 호출</button>
+ <script>
+	/*
+	function checkCount(i){
+		alert("해당 메소드가 " + i + "번 호출되었습니다.");
+	}
+	function callParamFunction(paramFunction){
+		for(var i = 0; i < 10 ; i++){
+			paramFunction(i + 1);
+		}
+	}*/
+
+	/*10 9 8 7 6 5 4 3 2 1 
+	5 <  - X번 더 누르면 정지 됩니다.
+	2 < - 곧 정지 됩니다.
+	1 < - 한번만 더 누르면 정지 됩니다.
+	1 - 정지 하겠습니다.*/
+	function callParamFunction(paramFunction){
+		for(var i = 10; i > 0 ; i--){
+			paramFunction(i);
+		}
+	}
+	function checkCount(i){
+		if(5 < i){
+			alert((i - 1) + "번 더 누르면 정지 됩니다.");
+		}else if (2 < i){
+			alert("곧 정지 합니다.")
+		}else if (1 < i){
+			alert("한번만 더 누르면 정지 합니다.")
+		}else{
+			alert("정지하겠습니다.")
+		}
+	}	
+ </script>
+ <hr>
+
+ <h3>함수를 리턴하여 사용</h3>
+ <input type="text" id="name" placeholder="이름을 입력하십시오."/>
+ <button onclick="setUserName()();">함수 실행 확인</button>
+ <script>
+	function setUserName(){
+		var userName = document.getElementById("name").value;
+
+		return function(){
+			alert("반갑습니다. " + userName + "님");
+		};
+	}
+ </script>
+ <hr>
+ <button onclick="setFunction();">함수 실행 확인</button>
+ <button onclick="printName();">함수 생성 확인</button>
+ <script>
+    var printName;
+	function setFunction(){
+		printName = makeFunction();
+	}
+	function makeFunction(){
+		var userName = document.getElementById("name").value;
+
+		return function(){
+			alert("반갑습니다. " + userName + "님");
+		};
 	}
  </script>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
  </body>
 </html>
