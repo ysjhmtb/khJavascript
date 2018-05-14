@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>객체</title>
+  <style>
+    .area {
+		width:100%;
+		height:auto;
+		border:1px solid black;
+	}
+  </style>
+ </head>
+ <body>
+ <h1>객체</h1>
+ <h3>객체 선언 및 호출</h3>
+ <p>{} 이용하여 객체를 생성하고, 속성(키)을 이용하여 값을 저장한다.</p>
+ <button onclick="test1();">실행 확인</button>
+ <div id="div1" class="area"></div>
+ <script>
+	function test1(){
+		var phone = {
+								model:'아이폰',
+								color:'red',
+								serialNumber:197863636,
+								country:['한국', '미국', '일본']
+							};
+		//alert(phone);
+		//console.log(phone);
+		
+		var $div1 = document.getElementById("div1");
+		$div1.innerHTML += "각각의 속성명으로 접근 객체['속성명'] <br>";
+		$div1.innerHTML += "phone['model'] : " + phone['model'] + "<br>";
+		$div1.innerHTML += "phone['color'] : " + phone['color'] + "<br>";
+		$div1.innerHTML += "phone['serialNumber'] : " + phone['serialNumber'] + "<br>";
+		$div1.innerHTML += "phone['country'] : " + phone['country'] + "<br>";
+		$div1.innerHTML += "phone['country'][0] : " + phone['country'][0] + "<br>";
+		$div1.innerHTML += "phone['country'][1] : " + phone['country'][1] + "<br>";
+		$div1.innerHTML += "phone['country'][2] : " + phone['country'][2] + "<br><br>";
+
+		$div1.innerHTML += "각각의 속성명으로 접근 객체.속성명 <br>";
+		$div1.innerHTML += "phone.model : " + phone.model + "<br>";
+		$div1.innerHTML += "phone.color : " + phone.color + "<br>";
+		$div1.innerHTML += "phone.serialNumber : " + phone.serialNumber + "<br>";
+		$div1.innerHTML += "phone.country : " + phone.country + "<br>";
+		$div1.innerHTML += "phone.country[0] : " + phone.country[0] + "<br>";
+		$div1.innerHTML += "phone.country[1] : " + phone.country[1] + "<br>";
+		$div1.innerHTML += "phone.country[2] : " + phone.country[2] + "<br>";
+	}
+ </script>
+ <hr>
+ <h3>객체의 메소드 속성</h3>
+ <button onclick="test2();">실행 확인</button>
+ <div id="div2" class="area"></div>
+ <script>
+	function test2(){
+		var $div2 = document.getElementById("div2");
+		var phone = {
+								model:'아이폰',
+								color:'red',
+								serialNumber:197863636,
+								infomation:function(){
+													$div2.innerHTML += this.model + "/"+ this.color + "/" + this.serialNumber;
+												 }						
+							};
+		phone.infomation();
+	}
+ </script>
+ <hr>
+ <h3>객체 정보 출력(반복문)</h3>
+ <p>객체의 정보를 출력 할때 속성명을 모를 경우 for...in 출력</p>
+ <button onclick="test3();">실행 확인</button>
+ <div id="div3" class="area"></div>
+ <script>
+	function test3(){
+		var game = {
+							 title:'스타크래프트',
+							 price:'35000원',
+							 maker:'블리자드',
+							 service:true
+						  }
+		//console.log(game);
+		var $div3 = document.getElementById("div3");
+		for(var key in game){
+			//console.log(key);
+			$div3.innerHTML += key + " : " + game[key] + "<br>"; 
+		}
+	}
+ </script>
+ <hr>
+ <h3>in , with 키워드</h3>
+ <p>in : 해당 속성이 객체에 존재하는지 확인</p>
+ <p>with : 해당 객체를 출력 할때 객체 명을 생략</p>
+ 국어 : <input type="text" id="kor"/><br>
+ 수학 : <input type="text" id="math"/><br>
+ 영어 : <input type="text" id="eng"/><br>
+ 이름 : <input type="text" id="name"/><br>
+ <button onclick="test4();">실행 확인</button>
+ <div id="div4" class="area"></div>
+ <script>
+	function test4(){
+		var kor = parseInt(document.getElementById("kor").value);
+		var math = parseInt(document.getElementById("math").value);
+		var eng = parseInt(document.getElementById("eng").value);
+		var name = document.getElementById("name").value;
+		
+		var student ={
+								kor:kor,
+								math:math,
+								eng:eng,
+								name:name
+							}
+		console.log(student);
+		
+		var $div4 = document.getElementById("div4");
+		$div4.innerHTML += "in 키워드를 이용하여 속성 존재 여부 확인<br>";
+		$div4.innerHTML += "student객체에 kor속성 존재 확인 : " 
+													+ ('kor' in student) + "<br>";
+		$div4.innerHTML += "student객체에 math속성 존재 확인 : " 
+													+ ('math' in student) + "<br>";
+		$div4.innerHTML += "student객체에 eng속성 존재 확인 : " 
+													+ ('eng' in student) + "<br>";
+		$div4.innerHTML += "student객체에 name속성 존재 확인 : " 
+													+ ('name' in student) + "<br>";
+		$div4.innerHTML += "student객체에 art속성 존재 확인 : " 
+													+ ('art' in student) + "<br>";
+
+		$div4.innerHTML += "해당 객체의 속성 값 출력<br>";
+		$div4.innerHTML += "kor" + " : " + student['kor'] + "<br>";
+		$div4.innerHTML += "math" + " : " + student['math'] + "<br>"; 
+		$div4.innerHTML += "eng" + " : " + student['eng'] + "<br>"; 
+		$div4.innerHTML += "name" + " : " + student['name'] + "<br><br>";
+		
+		$div4.innerHTML += "with를 이용하여 속성 값 출력<br>";
+		with(student){
+			$div4.innerHTML += "kor" + " : " + kor + "<br>";
+			$div4.innerHTML += "math" + " : " + math + "<br>";
+			$div4.innerHTML += "eng" + " : " + eng + "<br>";
+			$div4.innerHTML += "name" + " : " + name + "<br>";
+			$div4.innerHTML += "sum" + " : " + (kor + math + eng) + "<br>";
+			$div4.innerHTML += "avg" + " : " + ((kor + math + eng)/3) + "<br>";
+		}
+	}
+ </script>
+ <hr>
+ <h3>객체 속성 추가/삭제</h3>
+ <p>빈 객체를 선언하여 속성을 추가, 삭제</p>
+ <!--arr = [],  arr[0] = '값', arr[1] = '값'-->
+ <button onclick="test5();">실행 확인</button>
+ <div id="div5" class="area"></div>
+ <script>
+	function test5(){
+		var student = {};
+		//console.log(1, student);
+		
+		student.name = "최범석";
+		student.hobby = "develope";
+		student.age = 20;
+		student.dream = "good teacher~!";
+		console.log(2, student);
+		//toString() - 저장 되있는 속성 값들 출력
+		student.toString = function(){
+										var resultStr = "";
+										//console.log(this);
+										for(var key in this){
+											if(key != 'toString'){
+												resultStr += key + " : " + this[key] + "<br>";
+											}
+										}
+										return resultStr;
+									};
+		var $div5 = document.getElementById("div5");
+		$div5.innerHTML = student.toString();
+		
+		//객체 속성 삭제
+		delete(student.dream);
+		delete(student.name);
+		$div5.innerHTML += student.toString();
+	}
+ </script>
+ <hr>
+
+ <h3>생성자 함수</h3>
+ <p>new를 이용하여 객체를 생성할수 있는 함수</p>
+ <button onclick="test6();">실행 확인</button>
+ <div id="div6" class="area"></div>
+ <script>
+	function Student(name, java, oracle, html5, css3, javascript){
+		//속성 정의
+		this.name = name;
+		this.java = java;
+		this.oracle = oracle;
+		this.html5 = html5;
+		this.css3 = css3;
+		this.javascript = javascript;
+		
+		this.getSum = function(){
+			return this.java + this.oracle + this.html5 + this.css3 + this.javascript;
+		}
+		this.getAvg = function(){
+			return this.getSum()/5;
+		}
+		this.toString = function(){
+			return this.name + "/ 평균 : " + this.getAvg();
+		}
+	}
+	
+	var studentArr = [];
+	
+	function test6(){
+		var student = new Student(prompt("학생 이름 입력"),
+												parseInt(prompt("java 과목 점수")),
+												parseInt(prompt("oracle 과목 점수")),
+												parseInt(prompt("html5 과목 점수")),
+												parseInt(prompt("css3 과목 점수")),
+												parseInt(prompt("javascript 과목 점수"))
+											);
+	    console.log("student", student);
+		studentArr.push(student);
+		console.log("studentArr", studentArr);
+
+		document.getElementById("div6").innerHTML += student.toString() + "<br>";
+	}
+ </script>
+ </body>
+</html>

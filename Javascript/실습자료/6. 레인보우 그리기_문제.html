@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RainbowColor 체크박스 연습</title>
+<style type="text/css">
+	table {
+			border: solid gray 1px;
+	       	border-collapse: collapse;
+	}
+	td {
+		border: solid gray 1px;
+	    border-collapse: collapse;
+	    padding: 10px; 
+	} 
+	.red {background-color: red;}
+	.orange {background-color: orange;}
+	.yellow {background-color: yellow;}
+	.green {background-color: green;}
+	.blue {background-color: blue; color: white;}
+	.navy {background-color: navy;color: white;}
+	.violet {background-color: #cc33ff;} /* violet은 핑크색에 가깝다. */
+</style>
+<script type="text/javascript">
+	/**
+	 * 인자로 전체선택체크박스 요소를 전달함.
+	 */
+	function chkAll(obj){
+	}
+
+	/**
+	 * 일반체크박스 선택/해제시 호출되는 메소드
+	 */
+	function selectColor(tdId,ckBox){
+	}// end of function selectColor(tdId,ckBox) 
+	
+	function resetFrm(){
+	}
+</script>
+</head>
+<body>
+	<div style="top:50px" align="center">
+		<h2>rainbowColor</h2>
+		<form action="" name="colorFrm" method="get">
+		<table>
+			<tr>
+				<td>
+					전체선택: 
+				</td>
+				<td id="row0">
+					<input type="checkbox" name="colorAll" id="redAll" value="red" onclick="chkAll(this)"><label for="redAll">빨</label>
+					<input type="checkbox" name="colorAll" id="orangeAll" value="orange" onclick="chkAll(this)"><label for="orangeAll">주</label>
+					<input type="checkbox" name="colorAll" id="yellowAll" value="yellow" onclick="chkAll(this)"><label for="yellowAll">노</label>
+					<input type="checkbox" name="colorAll" id="greenAll" value="green" onclick="chkAll(this)"><label for="greenAll">초</label>
+					<input type="checkbox" name="colorAll" id="blueAll" value="blue" onclick="chkAll(this)"><label for="blueAll">파</label>
+					<input type="checkbox" name="colorAll" id="navyAll" value="navy" onclick="chkAll(this)"><label for="navyAll">남</label>
+					<input type="checkbox" name="colorAll" id="violetAll" value="violet" onclick="chkAll(this)"><label for="violetAll">보</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					하나
+				</td>
+				<td id="row1">
+					<input type="checkbox" name="rainbowColor1" id="red1" value="red" onclick="selectColor('row1',this)"><label for="red1">빨</label>
+					<input type="checkbox" name="rainbowColor1" id="orange1" value="orange" onclick="selectColor('row1',this)"><label for="orange1">주</label>
+					<input type="checkbox" name="rainbowColor1" id="yellow1" value="yellow" onclick="selectColor('row1',this)"><label for="yellow1">노</label>
+					<input type="checkbox" name="rainbowColor1" id="green1" value="green" onclick="selectColor('row1',this)"><label for="green1">초</label>
+					<input type="checkbox" name="rainbowColor1" id="blue1" value="blue" onclick="selectColor('row1',this)"><label for="blue1">파</label>
+					<input type="checkbox" name="rainbowColor1" id="navy1" value="navy" onclick="selectColor('row1',this)"><label for="navy1">남</label>
+					<input type="checkbox" name="rainbowColor1" id="violet1" value="violet" onclick="selectColor('row1',this)"><label for="violet1">보</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					둘
+				</td>
+				<td id="row2">
+					<input type="checkbox" name="rainbowColor2" id="red2" value="red" onclick="selectColor('row2',this)"><label for="red2">빨</label>
+					<input type="checkbox" name="rainbowColor2" id="orange2" value="orange" onclick="selectColor('row2',this)"><label for="orange2">주</label>
+					<input type="checkbox" name="rainbowColor2" id="yellow2" value="yellow" onclick="selectColor('row2',this)"><label for="yellow2">노</label>
+					<input type="checkbox" name="rainbowColor2" id="green2" value="green" onclick="selectColor('row2',this)"><label for="green2">초</label>
+					<input type="checkbox" name="rainbowColor2" id="blue2" value="blue" onclick="selectColor('row2',this)"><label for="blue2">파</label>
+					<input type="checkbox" name="rainbowColor2" id="navy2" value="navy" onclick="selectColor('row2',this)"><label for="navy2">남</label>
+					<input type="checkbox" name="rainbowColor2" id="violet2" value="violet" onclick="selectColor('row2',this)"><label for="violet2">보</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					셋
+				</td>
+				<td id="row3">
+					<input type="checkbox" name="rainbowColor3" id="red3" value="red" onclick="selectColor('row3',this)"><label for="red3">빨</label>
+					<input type="checkbox" name="rainbowColor3" id="orange3" value="orange" onclick="selectColor('row3',this)"><label for="orange3">주</label>
+					<input type="checkbox" name="rainbowColor3" id="yellow3" value="yellow" onclick="selectColor('row3',this)"><label for="yellow3">노</label>
+					<input type="checkbox" name="rainbowColor3" id="green3" value="green" onclick="selectColor('row3',this)"><label for="green3">초</label>
+					<input type="checkbox" name="rainbowColor3" id="blue3" value="blue" onclick="selectColor('row3',this)"><label for="blue3">파</label>
+					<input type="checkbox" name="rainbowColor3" id="navy3" value="navy" onclick="selectColor('row3',this)"><label for="navy3">남</label>
+					<input type="checkbox" name="rainbowColor3" id="violet3" value="violet" onclick="selectColor('row3',this)"><label for="violet3">보</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					하나
+				</td>
+				<td id="row4">
+					<input type="checkbox" name="rainbowColor4" id="red4" value="red" onclick="selectColor('row4',this)"><label for="red4">빨</label>
+					<input type="checkbox" name="rainbowColor4" id="orange4" value="orange" onclick="selectColor('row4',this)"><label for="orange4">주</label>
+					<input type="checkbox" name="rainbowColor4" id="yellow4" value="yellow" onclick="selectColor('row4',this)"><label for="yellow4">노</label>
+					<input type="checkbox" name="rainbowColor4" id="green4" value="green" onclick="selectColor('row4',this)"><label for="green4">초</label>
+					<input type="checkbox" name="rainbowColor4" id="blue4" value="blue" onclick="selectColor('row4',this)"><label for="blue4">파</label>
+					<input type="checkbox" name="rainbowColor4" id="navy4" value="navy" onclick="selectColor('row4',this)"><label for="navy4">남</label>
+					<input type="checkbox" name="rainbowColor4" id="violet4" value="violet" onclick="selectColor('row4',this)"><label for="violet4">보</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					다섯
+				</td>
+				<td id="row5">
+					<input type="checkbox" name="rainbowColor5" id="red5" value="red" onclick="selectColor('row5',this)"><label for="red5">빨</label>
+					<input type="checkbox" name="rainbowColor5" id="orange5" value="orange" onclick="selectColor('row5',this)"><label for="orange5">주</label>
+					<input type="checkbox" name="rainbowColor5" id="yellow5" value="yellow" onclick="selectColor('row5',this)"><label for="yellow5">노</label>
+					<input type="checkbox" name="rainbowColor5" id="green5" value="green" onclick="selectColor('row5',this)"><label for="green5">초</label>
+					<input type="checkbox" name="rainbowColor5" id="blue5" value="blue" onclick="selectColor('row5',this)"><label for="blue5">파</label>
+					<input type="checkbox" name="rainbowColor5" id="navy5" value="navy" onclick="selectColor('row5',this)"><label for="navy5">남</label>
+					<input type="checkbox" name="rainbowColor5" id="violet5" value="violet" onclick="selectColor('row5',this)"><label for="violet5">보</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					여섯
+				</td>
+				<td id="row6">
+					<input type="checkbox" name="rainbowColor6" id="red6" value="red" onclick="selectColor('row6',this)"><label for="red6">빨</label>
+					<input type="checkbox" name="rainbowColor6" id="orange6" value="orange" onclick="selectColor('row6',this)"><label for="orange6">주</label>
+					<input type="checkbox" name="rainbowColor6" id="yellow6" value="yellow" onclick="selectColor('row6',this)"><label for="yellow6">노</label>
+					<input type="checkbox" name="rainbowColor6" id="green6" value="green" onclick="selectColor('row6',this)"><label for="green6">초</label>
+					<input type="checkbox" name="rainbowColor6" id="blue6" value="blue" onclick="selectColor('row6',this)"><label for="blue6">파</label>
+					<input type="checkbox" name="rainbowColor6" id="navy6" value="navy" onclick="selectColor('row6',this)"><label for="navy6">남</label>
+					<input type="checkbox" name="rainbowColor6" id="violet6" value="violet" onclick="selectColor('row6',this)"><label for="violet6">보</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					일곱
+				</td>
+				<td id="row7">
+					<input type="checkbox" name="rainbowColor7" id="red7" value="red" onclick="selectColor('row7',this)"><label for="red7">빨</label>
+					<input type="checkbox" name="rainbowColor7" id="orange7" value="orange" onclick="selectColor('row7',this)"><label for="orange7">주</label>
+					<input type="checkbox" name="rainbowColor7" id="yellow7" value="yellow" onclick="selectColor('row7',this)"><label for="yellow7">노</label>
+					<input type="checkbox" name="rainbowColor7" id="green7" value="green" onclick="selectColor('row7',this)"><label for="green7">초</label>
+					<input type="checkbox" name="rainbowColor7" id="blue7" value="blue" onclick="selectColor('row7',this)"><label for="blue7">파</label>
+					<input type="checkbox" name="rainbowColor7" id="navy7" value="navy" onclick="selectColor('row7',this)"><label for="navy7">남</label>
+					<input type="checkbox" name="rainbowColor7" id="violet7" value="violet" onclick="selectColor('row7',this)"><label for="violet7">보</label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align=center>
+					<input type="submit" value="submit">&nbsp;&nbsp;
+					<input type="button" onclick="resetFrm();" value="reset">
+				</td>
+			</tr>
+			
+		</table>
+		</form>
+		
+	</div>
+</body>
+</html>
