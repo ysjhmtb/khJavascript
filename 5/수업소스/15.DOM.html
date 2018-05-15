@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>DOM</title>
+  <style>
+	.area{
+		width:100%;
+		height:auto;
+		border:1px solid black;
+	}
+  </style>
+ </head>
+ <body>
+ <h1>DOM(document object model)</h1>
+ <p>트리 구조로 엘리먼트 들이 구성되어 있다.(document 객체가 최상위 객체이다.)</p>
+ <h3>텍스트 노드 추가</h3>
+ <button onclick="test1();">실행확인</button>
+ <div id="output1" class="area"></div>
+ <script>
+	function test1(){
+		//h3 태그 생성
+		var $title = document.createElement("h3");
+		//텍스트 노드 생성
+		var $textNode = document.createTextNode("처음 만드는 element~!");
+		//텍스트를 h3 태그에 추가
+		$title.appendChild($textNode);
+		//div에 h3태그를 추가
+		document.getElementById("output1").appendChild($title);
+		
+
+
+		document.getElementById("output1").innerHTML += "<br><h3>처음 만드는 element~!</h3>";
+	}
+ </script>
+ <hr>
+ <h3>텍스트 값이 없는 엘리먼트 생성</h3>
+ <button onclick="test2();">실행확인</button>
+ <div id="output2" class="area"></div>
+ <script>
+	function test2(){
+		var $imgElement = document.createElement("img");
+		$imgElement.src = "http://imgnews.naver.com/image/5033/2011/02/08/201102080909501001_1.jpg";
+		$imgElement.width = "200";
+		$imgElement.height = "200";
+		
+		//기존 element에 없는 속성 추가
+		//$imgElement.myProperty = "해당 객체의 고유값";
+		$imgElement.setAttribute("myProperty", "해당 객체의 고유값");
+
+		document.getElementById("output2").appendChild($imgElement);
+	}
+ </script>
+ <hr>
+ <h3>해당 엘리먼트에 스타일 지정</h3>
+ <button onclick="test3();">실행확인</button>
+ <div id="output3" class="area"></div>
+
+ <button onclick="test4();">삭제</button>
+ <script>
+	function test3(){
+		var $output3 = document.getElementById("output3");
+		
+		$output3.style.backgroundColor = "yellow";
+		$output3.style.borderRadius = "50px";
+		$output3.style.height = "200px";
+		$output3.style.transition = "all 5s";
+	}
+
+	function test4(){
+		var $output3 = document.getElementById("output3");
+		$output3.remove();
+	}
+ </script>
+ </body>
+</html>
