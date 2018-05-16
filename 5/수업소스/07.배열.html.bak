@@ -94,6 +94,8 @@
 												fruits1.concat(fruits2) + "<br>";
 		$arrayDiv4.innerHTML += "fruits2를 기준으로 배열을 합침 : " + 
 												fruits2.concat(fruits1) + "<br>";
+		$arrayDiv4.innerHTML += fruits1 + "<br>";
+		$arrayDiv4.innerHTML += fruits2 + "<br>";
 	}
  </script>
  <hr>
@@ -201,77 +203,9 @@
 		
 		$arrayDiv9.innerHTML += "배열 데이터 : " + arr.toString() + "<br>";
 		$arrayDiv9.innerHTML += "toString() 타입은? " + typeof(arr.toString()) + "<br>";
-
-
-
-
-
-
-
-
-
-
-
+		//arr.join() = arr.toString()
+		//join은 구분자를 사용하여 연결 가능 하다
 	}
  </script>
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
