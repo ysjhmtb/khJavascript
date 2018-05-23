@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <title>Button Counter</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <style>
+    .data-test2{
+        width:100px;
+        height:100px;
+        margin-right:10px;
+        display:inline-block;
+        font-size:30px;
+        background:rgb(0,255,255)
+    }
+    .data-test{
+        width:100px;
+        height:100px;
+        margin-right:10px;
+        display:inline-block;
+        font-size:30px;
+        background:rgb(0,255,255)
+    }
+    </style>
+    
+</head>
+<body>
+    <h3>Button Counter 1</h3>
+    <button class="data-test2"> 0 </button>
+  
+    <h3>Button Counter 2</h3>
+    <button class="data-test"> 0 </button>
+    <button class="data-test"> 0 </button>
+    <button class="data-test"> 0 </button>
+    <button class="data-test"> 0 </button>
+    <button class="data-test"> 0 </button>
+   	<script>
+   		$(".data-test2").each(function(index, item){
+   			$(this).click(function(){
+   				var count = parseInt($(this).text()) + 1;
+   				$(this).text(count);
+   				$(this).css("background", "rgba(0,255,255, "+ (1-count/10)+")");
+   				if(count == 10){
+   					$(this).off("click");	
+   				}
+   			});
+   		});
+   		
+   		$(".data-test").each(function(index, item){
+   			$(this).click(function(){
+   				var count = parseInt($(this).text()) + 1;
+   				$(this).text(count);
+   				$(this).css("background", "rgba(0,255,255, "+ (1-count/10)+")");
+   				if(count == 10){
+   					$(this).off("click");	
+   				}
+   			});
+   		});
+   	</script>
+</body>
+</html>

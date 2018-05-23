@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Element</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<style>
+	.added{
+		color:lime;
+	}
+	
+	.item{
+		width:100px;
+		height:100px;
+		display:inline-block;
+		margin:5px;
+		background:yellow;
+	}
+	
+	.item span{
+		font-weight:bold;
+	}
+	
+	.colorRed{
+		background:red;
+	}
+	
+	.box{
+		width:100px;
+		height:100px;
+		padding:5px 15px 15px 5px;
+		magin:5px;
+		border:1px solid black;
+	}
+</style>
+</head>
+<body>
+<h1>Element 다루기</h1>
+<h3>객체 생성</h3>
+<div id="area1"></div>
+<script>
+	$(function(){
+		var $h1 = $("<h1>").text("h1 태그 내 추가된 값입니다.");
+		$("#area1").append($h1);
+		
+		var $p = document.createElement("p");
+		$p.innerHTML = "자바스크립트 객체 만들기";
+		$("#area1").append($p);
+		
+		var htmlStr = "<h2>test h2</h2>";
+		$("#area1").append(htmlStr);
+		//html() -> 내부에 있는 content가 모두 변경(덮어쓰기)
+		//append() -> 기존 항목은 유지, 항목이 추가된다 
+	});
+</script>
+<hr>
+제목 : <input type="text" name="title"/><br>
+내용 : <input type="text" name="content"/><br>
+글쓴이 : <input type="text" name="writer"/><br>
+<button id="addTableInfo">입력값 추가</button><br>
+<table border="1">
+	<tr>
+		<th>제목</th>
+		<th>내용</th>
+		<th>글쓴이</th>
+	</tr>
+</table>
+<script>
+	$(function(){
+		$("#addTableInfo").click(function(){
+			var $tr = $("<tr>");
+			var $title = $("<td>").text($("input:text").eq(0).val());
+			var $content = $("<td>").text($("input:text").eq(1).val());
+			var $writer = $("<td>").text($("input:text").eq(2).val());
+			
+			$tr.append($title);
+			$tr.append($content);
+			$tr.append($writer);
+			
+			$("table").append($tr);
+			
+			$("input:text").val("");
+		});
+	});
+</script>
+<hr>
+<h3>객체 추가 메소드</h3>
+<p>
+	$(A).append(B) : A 객체 내 마지막 B객체를 추가한다.<br>
+	$(B).appendTo(A) : B를 A 객체 내 마지막에 추가한다.<br>
+	$(B).prependTo(A) : B를 A 객체 내 앞부분에 추가한다.<br>
+	$(B).insertAfter(A) : B를 A 객체 밖 뒷부분에 추가한다.<br>
+	$(B).insertBefore(A) : B를 A 객체 밖 앞부분에 추가한다.
+</p>
+<h1 id="test1"><span>A</span></h1>
+<h1 id="test2"><span>A</span></h1>
+<h1 id="test3"><span>A</span></h1>
+<hr>
+<h1 id="test4"><span>A</span></h1>
+<script>
+	$(function(){
+		$("<span class='added'>B</span>").appendTo($("#test1"));
+		$("<span class='added'>B</span>").prependTo($("#test2"));
+		$("<span class='added'>B</span>").insertAfter($("#test3"));
+		$("<span class='added'>B</span>").insertBefore($("#test4"));
+	});
+</script>
+<hr>
+<h3>객체 복사와 제거 메소드</h3>
+<p>
+	clone() : 객체를 복사하는 메소드<br>
+	해당 객체의 이벤트 까지 복사가능함(파라미터 true)(default - false)
+</p>
+<button id="clone">clone</button>
+<div id="area2">
+	<div id="item" class="item"><span>입력 값</span></div>
+</div>
+<script>
+	$(function(){
+		$("#clone").click(function(){
+			//$("#item").clone().appendTo($("#area2"));
+			//이벤트 핸들러 까지 같이 복사 함(적용 함)
+			$("#item").clone(true).appendTo($("#area2"));
+		});
+		
+		$("#item").hover(function(){
+			$(this).addClass("colorRed");
+		},function(){
+			$(this).removeClass("colorRed");
+		});
+	});
+</script>
+<hr>
+<h3>객체 조작</h3>
+<p>
+	empty() : 객체 내 모든 자식 노드 들을 삭제<br>
+	remove() : 해당 객체만 떼어낸다.(이벤트 X)<br>
+	detach() : 해당 객체를 떼어낸다.(이벤트 모두 적용)<br>
+</p>
+<button id="emptyBtn">empty()</button>
+<button id="removeBtn">remove()</button>
+<button id="detachBtn">detach()</button>
+<div id="area3" class="box">
+	<div id="item2" class="item"><span>객체 정보</span></div>
+</div>
+<div id="result" class="box">
+</div>
+<script>
+	$("#emptyBtn").click(function(){
+		$("#area3").empty();
+	});
+	
+	$("#removeBtn").click(function(){
+		var $item = $("#item2").remove();
+		$("#result").html($item);
+	});
+	
+	$("#detachBtn").click(function(){
+		var $item = $("#item2").detach();
+		$("#result").html($item);
+	});
+	
+	$("#item2").hover(function(){
+		$(this).addClass("colorRed");
+	},function(){
+		$(this).removeClass("colorRed");
+	});
+</script>
+</body>
+</html>

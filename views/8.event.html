@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<style>
+	.outer{
+		width:200px;
+		height:200px;
+		background:orange;
+		padding:50px;
+	}
+	
+	.inner{
+		width:100%;
+		height:100%;
+		background:red;
+	}
+	
+	.reverse{
+		background:black;
+		color:white;
+	}
+</style>
+</head>
+<body>
+<h1>이벤트 연결 메소드</h1>
+<h3>mouseover/mouseout, mouseenter/mouseleave</h3>
+<p>over/out - 자식 객체에 접근 할때도 실행 됨<br>
+	  enter/leave - 해당 객체에서만 실행 됨</p>
+<div class="outer">
+	<div class="inner"></div>
+</div>
+<script>
+	$(function(){
+		
+		//자식 객체에 대해서도 이벤트가 발생 한다.
+		/*$(".outer").mouseover(function(){
+			console.log("OVER");
+		});
+		$(".outer").mouseout(function(){
+			console.log("OUT");
+		});*/
+		
+		//해당 객체에서만 이벤트 핸들러가 작동 한다.
+		$(".outer").mouseenter(function(){
+			console.log("ENTER");
+		});
+		$(".outer").mouseleave(function(){
+			console.log("LEAVE");
+		});
+	});
+</script>
+<hr>
+<h3>hover()</h3>
+<p>mouseenter/mouseleave 동시에 사용하는 효과</p>
+<div style="font-size:30px;" id="test1">HOVER 테스트!!</div>
+<script>
+	$(function(){
+		$("#test1").hover(function(){
+			//$(this).addClass("reverse");
+			$(this).toggleClass("reverse");
+		}, function(){
+			//$(this).removeClass("reverse");
+			$(this).toggleClass("reverse");
+		});
+	});
+</script>
+<hr>
+<h3>키보드 이벤트</h3>
+<p>
+	keydown : 키를 누를때*
+	keypress : 키가 입력 될때
+	keyup : 키가 떼어 질때
+</p>
+<input type="text" id="test2">
+<script>
+	$(function(){
+		/*
+		$("#test2").keydown(function(e){
+			console.log("key : " + e.key);
+			//console.log()
+		});
+		*/
+		//$("#test2").on("keypress",function(e){
+		//	console.log("keypress : " + e.key);
+		//});
+		$("#test2").keyup(function(e){
+			console.log("keyup : " + e.key);
+		});
+	});
+</script>
+<hr>
+<h3>동적으로 글자수 세기</h3>
+<div>
+	<p><span id="counter">0</span> / 20</p>
+	<textarea cols="70" rows="5" id="intro"></textarea>
+</div>
+<script>
+	//키보드 입력 시 - textarea의 글자수 -> span 영역에 글자 수 출력
+	//150 글자가 넘었을때 글자색을 빨간색으로 바꿈, 20글자 이하일 경우엔 검정색
+	$(function(){
+		$("#intro").keyup(function(){
+			var count = $(this).val().length;
+			$("#counter").text(count);
+			
+			if(count <= 20){
+				$(this).css("color", "black");
+			}else{
+				$(this).css("color", "red");
+			}
+		});
+	})
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

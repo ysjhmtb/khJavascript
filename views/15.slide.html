@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>slide 메소드</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+<style>
+	div{
+		width:300px;
+		height:30px;
+		color:orange;
+		background:green;
+		border-radius:10px;
+		text-align:center;
+		border:1px solid black;
+	}
+	.contents{
+		width:300px;
+		height:200px;
+		border:1px solid gray;
+		display:none
+	}
+</style>
+</head>
+<body>
+<h1>slide 메소드</h1>
+<h3>slideDown(), slideUp()</h3>
+
+<div>첫번째 메뉴</div>
+<p class="contents">첫번째 내용</p>
+<div>두번째 메뉴</div>
+<p class="contents">두번째 내용</p>
+<div>세번째 메뉴</div>
+<p class="contents">세번째 내용</p>
+<div>네번째 메뉴</div>
+<p class="contents">네번째 내용</p>
+<div>다섯번째 메뉴</div>
+<p class="contents">다섯번째 내용</p>
+<script>
+	$(function(){
+		$("div").click(function(){
+			var $p = $(this).next("p");
+			/*if($p.css("display") == "block"){
+				$p.slideUp();
+			}else{
+				$p.slideDown();
+			}*/
+			//slideToggle();
+			$p.slideToggle(function(){
+				alert("토글 완료");
+			});
+		});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

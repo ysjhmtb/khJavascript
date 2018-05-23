@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 2</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h1>이벤트 2</h1>
+<h3>이벤트 관련 속성</h3>
+<p>이벤트 핸들러의 매개변수로 event<br>
+ e말고 다른 키워드는 가능하다</p>
+ <button onclick="test1(event);">이벤트 확인</button>
+<script>
+	function test1(e){
+		console.log(e);
+		console.log(e.target);
+	}
+</script>
+<hr>
+<h3>이벤트를 연결 하는 방법</h3>
+<p>
+	bind() - 이벤트 핸들러를 설정<br>
+	$(선택자).bind("이벤트 종류", "이벤트 핸들러");<br>
+	unbind() - 설정 된 이벤트 핸들러 제거<br>
+	$(선택자).unbind("이벤트 종류");
+	on(), off() - 기본의 bind/unbind -> 대체 
+</p>
+<div id="test1">마우스를 올려 보세요~</div>
+<button id="btn1">이벤트 취소</button>
+<script>
+	$(function(){
+		/*$("#test1").bind("mouseenter",function(){
+			$(this).css("background","black").css("color","white");
+		});
+		$("#test1").bind("mouseleave",function(){
+			$(this).css("background","white").css("color","black");
+		});*/
+		$("#test1").bind("mouseenter",function(){
+			$(this).css("background","black").css("color","white");
+		}).bind("mouseleave",function(){
+			$(this).css("background","white").css("color","black");
+		});
+		
+		$("#btn1").click(function(){
+			$("#test1").unbind("mouseenter").unbind("mouseleave");
+		});
+	})
+</script>
+<hr>
+<div id="test2">마우스를 올려 보세요~(on)</div>
+<button id="btn2">이벤트 취소</button>
+<script>
+	$(function(){
+		$("#test2").on({"mouseenter":function(){
+			$(this).css("background","black").css("color","white");
+		}, "mouseleave":function(){
+			$(this).css("background","white").css("color","black");
+		}
+		});
+		
+		$("#btn2").on("click",function(){
+			$("#test2").off("mouseenter").off("mouseleave");
+		});
+	});
+</script>
+<hr>
+<h3>이벤트가 한번 실행 되도록 설정</h3>
+<p>one() : 사용하는 방법은 bind와 동일</p>
+<button id="oneBtn">한번 실행 되는 버튼</button>
+<script>
+	$(function(){
+		$("#oneBtn").one("click",function(){
+			alert("한번만 실행되는 메소드!!!!!");
+		});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

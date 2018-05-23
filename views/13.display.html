@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>시각적 효과</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h1>display 속성을 다루는 jquery 메소드</h1>
+<h3>show(), hide()</h3>
+<p>
+	show() : 객체를 보여주는 메소드
+	hide() : 객체를 사라지게 하는 메소드
+</p>
+<p>파라미터 : (speed, easing, callback)</p>
+<button id="show">보여주기</button>
+<button id="hide">숨기기</button><br>
+<img src="../images/tour1.jpg" alt="여행지 사진" id="tourImg">
+<script>
+	$(function(){
+		$("#show").on("click", function(){
+			//$("#tourImg").show();
+			$("#tourImg").show(400);
+		});
+		$("#hide").on("click", function(){
+			$("#tourImg").hide();
+		});
+	});
+</script>
+<hr>
+<h3>toggle()</h3>
+<p>해당 객체가 display 상태면 사라지게 하고, 안보이는 상태라면 보이게 함</p>
+<button id="toggle">토글버튼</button><br>
+<img src="../images/tour1.jpg" alt="여행지 사진" id="tourImg2">
+<script>
+	$(function(){
+		$("#toggle").click(function(){
+			$("#tourImg2").toggle(0, function(){
+				alert("토글이 완료되었습니다.");
+			});
+		});
+	})
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>탐색 2</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<style>
+	.wrap *{
+		border : 1px solid lightgray;
+		display : block;
+		padding: 5px;
+		margin:10px;
+		color:gray;
+	}
+</style>
+</head>
+<body>
+<h1>객체 탐색2</h1>
+<h3>순회 탐색 메소드</h3>
+<p>선택 된 요소의 하위 요소를 선택할수 있는 메소드</p>
+<p>children(), find()</p>
+<div class="wrap">
+	<div class="type">div (레벨1)
+		<ul>ul (레벨2)
+			<li>li (레벨3)
+				<span>span (레벨4)</span>
+			</li>
+			<li>li2 (레벨3)
+				<span>span2 (레벨4)</span>
+			</li>
+		</ul>
+	</div>
+	<div class="type">div (레벨1)
+		<p>p (레벨2)
+			<span>span (레벨3)</span>
+		</p>
+	</div>
+</div>
+<script>
+	$(function(){
+		var style = {"border":"2px solid red", "color":"red"};
+		
+		//바로 아래 자손 객체만 선택
+		//$(".wrap").children().css(style);
+		
+		//$(".wrap").children().children().css(style);
+		//파라미터를 이용하여 해당 조건에 일치하는 자손 선택
+		//$(".wrap").children().children("ul").css(style);
+		
+		
+		//첫번째 span - style, '해당 영역을 선택하였습니다.'
+		//$(".wrap").children().children("ul").children("li").children("span").eq(0).css(style).text("해당 영역을 선택하였습니다.");
+		
+		//find()
+		$(".wrap").find("span").eq(0).css(style);
+		
+		
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

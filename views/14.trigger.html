@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>트리거</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h1>이벤트 다루기</h1>
+<h3>회원가입 양식</h3>
+<form action="../index.html">
+	<table id="wrap">
+		<caption>회원 가입</caption>
+		<tr>
+			<th>이름</th>
+			<td><input type="text" name="name" id="name" required/></td>
+		</tr>	
+		<tr>
+			<th>아이디</th>
+			<td><input type="text" name="id" id="id" required/></td>
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td><input type="password" name="pwd" id="pwd" required/></td>
+		</tr>
+		<tr>
+			<th>비밀번호 확인</th>
+			<td><input type="password" id="pwdChk" required/></td>
+		</tr>
+		<tr>
+			<th>이메일</th>
+			<td><input type="email" name="email" id="email" required/></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="회원 가입">
+				<input type="reset" value="취소">
+			</td>
+		</tr>
+	</table>
+</form>
+
+<script>
+	$(function(){
+		$("#name").focus(function(){
+			console.log("focus 발생~!!");
+		}).blur(function(){
+			console.log("blur 발생~!!");
+		}).change(function(){
+			console.log("change 발생~!!!");
+		}).select(function(){
+			console.log("select 발생~!!!!");
+		});
+		
+		//이름을 입력 할때 정상적으로 입력 되지 않았을경우
+		//이름을 확인하십시오. 라고 경고창 메세지 출력
+		//해당 input 배경색을 빨간색으로 설정
+		//정상 - 배경색을 원래대로 바꿔주세요.(흰색)
+		//정규표현식 한글 2자 이상 [가-힣]{2,}
+		$("#name").change(function(){
+			var regExp = /^[가-힣]{2,}$/;
+			if(regExp.test($(this).val())){
+				$(this).css("background", "white");
+				$(this).css("color", "black");
+			}else{
+				$(this).css("background", "red");
+				$(this).css("color", "white");
+				alert("이름을 확인해 주십시오.");
+			}			
+		});
+		
+		
+		//비밀번호 입력 후 비밀번호 확인란 입력 시
+		//기존 비밀번호 값과 비밀번호 확인란 값을 비교하여 결과 출력
+		//일치 - 배경색 흰색, 글자색 검정색
+		//불일치 - 배경색 - 빨간색, 글자색 흰색(keyboard)
+		$("#pwdChk").keyup(function(){
+			var pwd = $("#pwd").val();
+			
+			if(pwd == $(this).val()){
+				$(this).css("background", "white");
+				$(this).css("color", "black");
+			}else{
+				$(this).css("background", "red");
+				$(this).css("color", "white");
+			}
+		});
+		
+		$("form").submit(function(){
+			if(confirm("회원가입을 하시겠습니까?")){
+				return true;
+			}else{
+				return false;
+			}
+		});
+	});
+</script>
+<hr>
+<h3>trigger()</h3>
+<p>특정 이벤트 실행시 다른 객체의 이벤트를 실행시킬때 사용</p>
+<button id="clickBtn">0</button><br>
+<button id="triggerBtn">trigger 호출 버튼</button>
+
+<script>
+	$(function(){
+		$("#clickBtn").click(function(){
+			var count = parseInt($(this).text());
+			$(this).text(count + 1);
+		});
+		$("#triggerBtn").click(function(){
+			//$("#clickBtn").trigger("click");	//clickBtn에 있는 click 이벤트 핸들러 호출
+			$("#clickBtn").click();
+		});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
